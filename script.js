@@ -32,6 +32,9 @@ if (window.matchMedia('(pointer: fine)').matches) {
 (function initParticles() {
   const canvas = document.getElementById('particleCanvas');
   if (!canvas) return;
+  const isMobile = window.innerWidth < 768;
+  /* On mobile skip particles entirely — too heavy */
+  if (isMobile) { canvas.style.display = 'none'; return; }
   const ctx = canvas.getContext('2d');
   let W, H, particles = [];
 
