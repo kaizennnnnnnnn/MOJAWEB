@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Asevin – Profesionalna izrada web sajtova za lokalne biznise. Jovan Špinjo pomaže malim biznisima da izgrade snažno online prisustvo kroz moderan dizajn i web development." />
+  <meta name="keywords" content="izrada sajtova, web dizajn, web development, lokalni biznis, Asevin, Jovan Špinjo" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Asevin | Profesionalna Izrada Web Sajtova" />
+  <meta property="og:description"
+    content="Pomažem lokalnim biznisima da izgrade snažno online prisustvo kroz moderan web dizajn i development." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="og-image.jpg" />
+  <title>Asevin | Profesionalna Izrada Web Sajtova</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════ CURSOR ═══════════════════════ -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ═══════════════════════ NAVBAR ═══════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <img src="logo.png" alt="Asevin logo" class="logo-img" />
+        <span class="logo-text">sevin</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#usluge" class="nav-link">Usluge</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="#saradnja" class="nav-link">Saradnja</a></li>
+        <li><a href="#o-meni" class="nav-link">O meni</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+        <li><a href="#kontakt" class="nav-link nav-cta">Kontaktiraj me</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════ HERO ═══════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div id="robotScene">
+        <spline-viewer
+          url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+          loading-anim-type="none"
+        ></spline-viewer>
+      </div>
+      <div class="hero-blob blob-1"></div>
+      <div class="hero-blob blob-2"></div>
+      <div class="hero-blob blob-3"></div>
+      <div class="hero-grid"></div>
+      <canvas id="particleCanvas"></canvas>
+    </div>
+    <div class="hero-container">
+      <div class="hero-badge reveal-up">
+        <span class="badge-dot"></span>
+        Dostupan za projekte &bull; 2025
+      </div>
+      <h1 class="hero-title reveal-up">
+        Tvoj biznis zaslužuje<br />
+        <span class="gradient-text">web sajt koji prodaje</span>
+      </h1>
+      <p class="hero-subtitle reveal-up">
+        Pravim moderne, brze i mobilno optimizovane sajtove koji<br class="d-none-mobile" />
+        pretvaraju posetioce u klijente — za lokalne biznise koji žele da rastu.
+      </p>
+      <div class="hero-actions reveal-up">
+        <a href="#kontakt" class="btn btn-primary">
+          <span>Započni projekat</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a href="#portfolio" class="btn btn-ghost">
+          <span>Pogledaj radove</span>
+        </a>
+      </div>
+      <div class="hero-stats reveal-up">
+        <div class="stat-item">
+          <span class="stat-num" data-target="30">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Projekata</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="100">0</span><span class="stat-plus">%</span>
+          <span class="stat-label">Zadovoljnih klijenata</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="3">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Godine iskustva</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Skroluj dole</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ LOGO MARQUEE ═══════════════════════ -->
+  <section class="marquee-section">
+    <div class="marquee-label">Tehnologije koje koristim</div>
+    <div class="marquee-track">
+      <div class="marquee-inner">
+        <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span>
+        <span>Next.js</span><span>WordPress</span><span>Figma</span><span>Node.js</span>
+        <span>Webflow</span><span>Tailwind</span><span>SEO</span><span>GSAP</span>
+        <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span>
+        <span>Next.js</span><span>WordPress</span><span>Figma</span><span>Node.js</span>
+        <span>Webflow</span><span>Tailwind</span><span>SEO</span><span>GSAP</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ USLUGE ═══════════════════════ -->
+  <section class="section" id="usluge">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Šta nudim</span>
+        <h2 class="section-title">Usluge prilagođene<br /><span class="gradient-text">tvojim potrebama</span></h2>
+        <p class="section-subtitle">Svaki biznis je jedinstven. Zato ne radim šablone — pravim rešenja koja stvarno
+          rade.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal-up" data-delay="0">
+          <div class="service-icon-wrap">
+            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M3 9h18M9 21V9" />
+            </svg>
+          </div>
+          <h3>Web Dizajn</h3>
+          <p>Vizualno upečatljiv dizajn koji odražava tvoj brend i privlači pažnju ciljne publike od prvog pogleda.</p>
+          <ul class="service-features">
+            <li>Prilagođen tvom brendu</li>
+            <li>Moderan i čist izgled</li>
+            <li>UI/UX optimizacija</li>
+          </ul>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-card reveal-up" data-delay="100">
+          <div class="service-icon-wrap">
+            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+            </svg>
+          </div>
+          <h3>Web Development</h3>
+          <p>Brze, sigurne i skalabilne web aplikacije i sajtovi koji rade besprekorno na svim uređajima.</p>
+          <ul class="service-features">
+            <li>Brzo učitavanje</li>
+            <li>Mobilno responzivan</li>
+            <li>Čist kod</li>
+          </ul>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-card reveal-up featured" data-delay="200">
+          <div class="service-badge">Najpopularnije</div>
+          <div class="service-icon-wrap">
+            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5z" />
+              <path d="M2 17l10 5 10-5" />
+              <path d="M2 12l10 5 10-5" />
+            </svg>
+          </div>
+          <h3>Kompletno Rešenje</h3>
+          <p>Od ideje do objave — dizajn, development, hosting, domen, SEO i podrška nakon lansiranja.</p>
+          <ul class="service-features">
+            <li>Sve na jednom mestu</li>
+            <li>SEO optimizacija</li>
+            <li>Podrška 30 dana</li>
+          </ul>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-card reveal-up" data-delay="300">
+          <div class="service-icon-wrap">
+            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </div>
+          <h3>SEO Optimizacija</h3>
+          <p>Pomognem tvojim klijentima da te pronađu na Google-u pre konkurencije.</p>
+          <ul class="service-features">
+            <li>On-page SEO</li>
+            <li>Lokalni SEO</li>
+            <li>Google My Business</li>
+          </ul>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-card reveal-up" data-delay="400">
+          <div class="service-icon-wrap">
+            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <path d="M16 10a4 4 0 01-8 0" />
+            </svg>
+          </div>
+          <h3>Online Prodavnice</h3>
+          <p>E-commerce rešenja koja prodaju 24/7 — od kataloga do plaćanja i upravljanja narudžbinama.</p>
+          <ul class="service-features">
+            <li>Online plaćanje</li>
+            <li>Upravljanje zalihama</li>
+            <li>Analitika prodaje</li>
+          </ul>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-card reveal-up" data-delay="500">
+          <div class="service-icon-wrap">
+            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path
+                d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+            </svg>
+          </div>
+          <h3>Održavanje & Podrška</h3>
+          <p>Briga o tvom sajtu nakon lansiranja — ažuriranja, sigurnost, backup i tehnička podrška.</p>
+          <ul class="service-features">
+            <li>Mesečno održavanje</li>
+            <li>Sigurnosni backup</li>
+            <li>Brze izmene</li>
+          </ul>
+          <div class="service-arrow">→</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ PORTFOLIO ═══════════════════════ -->
+  <section class="section section-dark" id="portfolio">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Moji radovi</span>
+        <h2 class="section-title">Portfolio <span class="gradient-text">projekata</span></h2>
+        <p class="section-subtitle">Svaki projekat je priča o transformaciji — od problema do rešenja koje donosi
+          rezultate.</p>
+      </div>
+      <div class="portfolio-filters reveal-up">
+        <button class="filter-btn active" data-filter="all">Svi</button>
+        <button class="filter-btn" data-filter="biznis">Biznis</button>
+        <button class="filter-btn" data-filter="restoran">Restoran</button>
+        <button class="filter-btn" data-filter="shop">E-commerce</button>
+        <button class="filter-btn" data-filter="usluge">Usluge</button>
+      </div>
+      <div class="portfolio-grid" id="portfolioGrid">
+        <div class="portfolio-card reveal-up" data-category="biznis">
+          <div class="portfolio-img">
+            <div class="portfolio-placeholder" style="--c1:#6366f1;--c2:#8b5cf6;">
+              <div class="placeholder-ui">
+                <div class="ui-bar"></div>
+                <div class="ui-bar short"></div>
+                <div class="ui-block"></div>
+              </div>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="overlay-links">
+                <button class="overlay-btn detail-btn" onclick="openModal(0)">Detalji</button>
+                <a href="#" class="overlay-btn live-btn" target="_blank">Live Demo →</a>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-meta">
+              <span class="portfolio-category">Biznis</span>
+              <span class="portfolio-year">2024</span>
+            </div>
+            <h3>Projekat 1</h3>
+            <p>Opis projekta dolazi uskoro — unesi svoje informacije.</p>
+            <div class="portfolio-tags">
+              <span>React</span><span>Next.js</span><span>SEO</span>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card reveal-up" data-category="restoran">
+          <div class="portfolio-img">
+            <div class="portfolio-placeholder" style="--c1:#f59e0b;--c2:#ef4444;">
+              <div class="placeholder-ui">
+                <div class="ui-bar"></div>
+                <div class="ui-bar short"></div>
+                <div class="ui-block"></div>
+              </div>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="overlay-links">
+                <button class="overlay-btn detail-btn" onclick="openModal(1)">Detalji</button>
+                <a href="#" class="overlay-btn live-btn" target="_blank">Live Demo →</a>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-meta">
+              <span class="portfolio-category">Restoran</span>
+              <span class="portfolio-year">2024</span>
+            </div>
+            <h3>Projekat 2</h3>
+            <p>Opis projekta dolazi uskoro — unesi svoje informacije.</p>
+            <div class="portfolio-tags">
+              <span>WordPress</span><span>WooCommerce</span>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card reveal-up" data-category="shop">
+          <div class="portfolio-img">
+            <div class="portfolio-placeholder" style="--c1:#06b6d4;--c2:#3b82f6;">
+              <div class="placeholder-ui">
+                <div class="ui-bar"></div>
+                <div class="ui-bar short"></div>
+                <div class="ui-block"></div>
+              </div>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="overlay-links">
+                <button class="overlay-btn detail-btn" onclick="openModal(2)">Detalji</button>
+                <a href="#" class="overlay-btn live-btn" target="_blank">Live Demo →</a>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-meta">
+              <span class="portfolio-category">E-commerce</span>
+              <span class="portfolio-year">2025</span>
+            </div>
+            <h3>Projekat 3</h3>
+            <p>Opis projekta dolazi uskoro — unesi svoje informacije.</p>
+            <div class="portfolio-tags">
+              <span>Shopify</span><span>Tailwind</span>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card reveal-up" data-category="usluge">
+          <div class="portfolio-img">
+            <div class="portfolio-placeholder" style="--c1:#10b981;--c2:#06b6d4;">
+              <div class="placeholder-ui">
+                <div class="ui-bar"></div>
+                <div class="ui-bar short"></div>
+                <div class="ui-block"></div>
+              </div>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="overlay-links">
+                <button class="overlay-btn detail-btn" onclick="openModal(3)">Detalji</button>
+                <a href="#" class="overlay-btn live-btn" target="_blank">Live Demo →</a>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-meta">
+              <span class="portfolio-category">Usluge</span>
+              <span class="portfolio-year">2025</span>
+            </div>
+            <h3>Projekat 4</h3>
+            <p>Opis projekta dolazi uskoro — unesi svoje informacije.</p>
+            <div class="portfolio-tags">
+              <span>JavaScript</span><span>CSS3</span><span>SEO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-cta reveal-up">
+        <p>Zainteresovan za slične rezultate?</p>
+        <a href="#kontakt" class="btn btn-primary">Razgovarajmo o tvom projektu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ SARADNJA / PROCESS ═══════════════════════ -->
+  <section class="section" id="saradnja">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Kako radimo</span>
+        <h2 class="section-title">Proces saradnje<br /><span class="gradient-text">korak po korak</span></h2>
+        <p class="section-subtitle">Jasna komunikacija i transparentan proces od prvog razgovora do predaje sajta.</p>
+      </div>
+      <div class="process-timeline">
+        <div class="process-step reveal-up" data-delay="0">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <div class="step-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+              </svg>
+            </div>
+            <h3>Besplatan konsultacioni poziv</h3>
+            <p>Pričamo o tvojim ciljevima, biznis modelu i šta tačno tražiš. Bez obaveza, bez skrivenih troškova. Ja
+              samo slušam i predlažem rešenje.</p>
+            <div class="step-duration">⏱ 30-60 min</div>
+          </div>
+        </div>
+        <div class="process-step reveal-up" data-delay="100">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <div class="step-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M9 9h6M9 13h4" />
+              </svg>
+            </div>
+            <h3>Ponuda i plan projekta</h3>
+            <p>Šaljem ti detaljnu ponudu sa rokovima, cenama i tačnim opisom svega što dobijаš. Nema skrivenih troškova
+              — sve je crno na belo.</p>
+            <div class="step-duration">⏱ 1-2 dana</div>
+          </div>
+        </div>
+        <div class="process-step reveal-up" data-delay="200">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <div class="step-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v4l3 3" />
+              </svg>
+            </div>
+            <h3>Dizajn i development</h3>
+            <p>Počinjemo rad. Videćeš dizajn pre nego što pišemo i jednu liniju koda. Feedback je dobrodošao u svakom
+              koraku — ovo je tvoj sajt.</p>
+            <div class="step-duration">⏱ 1-4 nedelje</div>
+          </div>
+        </div>
+        <div class="process-step reveal-up" data-delay="300">
+          <div class="step-number">04</div>
+          <div class="step-content">
+            <div class="step-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+            </div>
+            <h3>Testiranje i optimizacija</h3>
+            <p>Pre lansiranja testiramo sajt na svim uređajima, optimizujemo brzinu i proveravamo svaki detalj. Ništa ne
+              prolazi bez mog odobravanja.</p>
+            <div class="step-duration">⏱ 2-3 dana</div>
+          </div>
+        </div>
+        <div class="process-step reveal-up" data-delay="400">
+          <div class="step-number">05</div>
+          <div class="step-content">
+            <div class="step-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+            </div>
+            <h3>Lansiranje i predaja</h3>
+            <p>Sajt ide live! Dobijаš pristup svemu, kratki video vodič kako da koristiš i upravljaš sajtom, i 30 dana
+              besplatne podrške.</p>
+            <div class="step-duration">⏱ Dan lansiranja</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ O MENI ═══════════════════════ -->
+  <section class="section section-dark about-section" id="o-meni">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-wrap reveal-left">
+          <div class="about-img-frame">
+            <img src="pfp.png" alt="Jovan Špinjo - Web Developer" class="about-img"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="about-img-placeholder">
+              <span class="placeholder-initials">JŠ</span>
+            </div>
+          </div>
+          <div class="about-badge-card">
+            <div class="badge-card-icon">🚀</div>
+            <div>
+              <div class="badge-card-num">3+</div>
+              <div class="badge-card-label">godine iskustva</div>
+            </div>
+          </div>
+          <div class="about-badge-card about-badge-card-2">
+            <div class="badge-card-icon">✅</div>
+            <div>
+              <div class="badge-card-num">30+</div>
+              <div class="badge-card-label">projekata završenih</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-content reveal-right">
+          <span class="section-tag">O meni</span>
+          <h2 class="section-title">Zdravo, ja sam<br /><span class="gradient-text">Jovan Špinjo</span></h2>
+          <p class="about-text">
+            Osnivač sam brenda <strong>Asevin</strong> i web developer sa strašću prema modernom dizajnu i čistom kodu.
+            Već više od 3 godine pomažem lokalnim biznisima da izgrades jak online identitet koji privlači prave
+            klijente.
+          </p>
+          <p class="about-text">
+            Specijalizovan sam za izradu sajtova koji nisu samo lepi — oni i prodaju. Razumem izazove malih biznisa i
+            znam koliko je važno da svaki uloženi dinar donese povratak.
+          </p>
+          <p class="about-text">
+            Kad ne radim sajtove, istraživam nove dizajn trendove, učim nove tehnologije i volim direktnu komunikaciju
+            bez žargona i komplikacija.
+          </p>
+          <div class="about-skills">
+            <div class="skill-tag">Web Design</div>
+            <div class="skill-tag">Frontend Dev</div>
+            <div class="skill-tag">UI/UX</div>
+            <div class="skill-tag">SEO</div>
+            <div class="skill-tag">React</div>
+            <div class="skill-tag">WordPress</div>
+            <div class="skill-tag">Figma</div>
+            <div class="skill-tag">Next.js</div>
+          </div>
+          <a href="#kontakt" class="btn btn-primary" style="margin-top:2rem;">Kontaktiraj me →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ TESTIMONIALS ═══════════════════════ -->
+  <section class="section" id="utisci">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Utisci</span>
+        <h2 class="section-title">Šta kažu<br /><span class="gradient-text">moji klijenti</span></h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal-up" data-delay="0">
+          <div class="stars">★★★★★</div>
+          <p>"Jovan je napravio sjajan sajt za naš restoran. Broj rezervacija se povećao za 40% u prvom mesecu.
+            Preporuka na pet!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">MJ</div>
+            <div>
+              <div class="author-name">Marko J.</div>
+              <div class="author-biz">Restoran "Kod Marka"</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal-up" data-delay="150">
+          <div class="stars">★★★★★</div>
+          <p>"Konačno sajt koji izgleda profesionalno i koji Google prepoznaje! Komunikacija je bila odlična tokom celog
+            procesa."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AN</div>
+            <div>
+              <div class="author-name">Ana N.</div>
+              <div class="author-biz">Frizerski salon "Belle"</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal-up" data-delay="300">
+          <div class="stars">★★★★★</div>
+          <p>"Brz, pouzdan i razume šta tačno treba. Online prodavnica radi savršeno, a dizajn je iznad svih mojih
+            očekivanja."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SR</div>
+            <div>
+              <div class="author-name">Stefan R.</div>
+              <div class="author-biz">SportStyle Shop</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ FAQ ═══════════════════════ -->
+  <section class="section section-dark" id="faq">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">FAQ</span>
+        <h2 class="section-title">Često postavljana<br /><span class="gradient-text">pitanja</span></h2>
+        <p class="section-subtitle">Imam odgovore na pitanja koja najčešće dobijam od potencijalnih klijenata.</p>
+      </div>
+      <div class="faq-container reveal-up">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Koliko košta izrada web sajta?</span>
+            <div class="faq-icon"><span></span><span></span></div>
+          </button>
+          <div class="faq-answer">
+            <p>Cena zavisi od složenosti projekta. Jednostavan prezentacioni sajt kreće od 300€, dok kompleksnije online
+              prodavnice ili web aplikacije mogu biti i više. Na prvom besplatnom razgovoru ćemo definisati tačnu
+              ponudu.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Koliko dugo traje izrada?</span>
+            <div class="faq-icon"><span></span><span></span></div>
+          </button>
+          <div class="faq-answer">
+            <p>Prosečan prezentacioni sajt radim za 1-2 nedelje. Online prodavnica može trajati 3-4 nedelje. Uvek
+              definisuemo tačan rok u ponudi i toga se pridržavam.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Da li mi je potreban hosting i domen? Ko to sredjuje?</span>
+            <div class="faq-icon"><span></span><span></span></div>
+          </button>
+          <div class="faq-answer">
+            <p>Da, svaki sajt treba hosting i domen. Ja se brigujem o celom procesu — preporučujem, pomažem oko kupovine
+              i podešavam sve. Možeš da se fokusiraš na biznis, ja ću na tehničke detalje.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Hoću li moći sam da menjam sadržaj na sajtu?</span>
+            <div class="faq-icon"><span></span><span></span></div>
+          </button>
+          <div class="faq-answer">
+            <p>Apsolutno! Na zahtev instaliramo CMS (sistem za upravljanje sadržajem) koji ti omogućava da menjаš tekst,
+              slike i ostali sadržaj bez znanja koda. Dobijаš i video vodič za korišćenje.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Šta ako nisam zadovoljan rezultatom?</span>
+            <div class="faq-icon"><span></span><span></span></div>
+          </button>
+          <div class="faq-answer">
+            <p>Pre svakog koraka razvoja dobijаš preview na odobravanje. Uključene su revision runde u svakom projektu,
+              tako da ćemo zajedno doći do rešenja koje te 100% zadovoljava.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Radiš li sa biznisima van Srbije?</span>
+            <div class="faq-icon"><span></span><span></span></div>
+          </button>
+          <div class="faq-answer">
+            <p>Naravno! Sarađujem online sa klijentima iz regiona i EU. Sva komunikacija može biti na srpskom ili
+              engleskom. Lokacija nije prepreka za kvalitetnu saradnju.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Da li se brineš o sajtu i nakon lansiranja?</span>
+            <div class="faq-icon"><span></span><span></span></div>
+          </button>
+          <div class="faq-answer">
+            <p>Da! Prvih 30 dana podrška je uključena besplatno. Nakon toga nudim mesečne pakete održavanja koji
+              uključuju sigurnosne backup, ažuriranja i manje izmene sadržaja.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ KONTAKT ═══════════════════════ -->
+  <section class="section" id="kontakt">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag">Kontakt</span>
+        <h2 class="section-title">Hajde da izgradimo<br /><span class="gradient-text">nešto zajedno</span></h2>
+        <p class="section-subtitle">Jedan razgovor može promeniti sve. Javi mi se — odgovaram u roku od 24 sata.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal-left">
+          <h3>Kontaktiraj me direktno</h3>
+          <div class="contact-items">
+            <a href="mailto:jovan@asevin.rs" class="contact-item">
+              <div class="contact-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div>
+                <span class="contact-label">Email</span>
+                <span class="contact-val">jovan@asevin.rs</span>
+              </div>
+            </a>
+            <a href="tel:+381601234567" class="contact-item">
+              <div class="contact-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                </svg>
+              </div>
+              <div>
+                <span class="contact-label">Telefon / WhatsApp</span>
+                <span class="contact-val">+381 60 123 4567</span>
+              </div>
+            </a>
+            <a href="https://instagram.com/asevin" class="contact-item" target="_blank">
+              <div class="contact-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="2" width="20" height="20" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+                </svg>
+              </div>
+              <div>
+                <span class="contact-label">Instagram</span>
+                <span class="contact-val">@asevin</span>
+              </div>
+            </a>
+            <a href="https://linkedin.com/in/jovanspinjo" class="contact-item" target="_blank">
+              <div class="contact-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </div>
+              <div>
+                <span class="contact-label">LinkedIn</span>
+                <span class="contact-val">Jovan Špinjo</span>
+              </div>
+            </a>
+          </div>
+          <div class="contact-availability">
+            <div class="avail-dot"></div>
+            <span>Dostupan za nove projekte</span>
+          </div>
+        </div>
+        <div class="contact-form-wrap reveal-right">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name">Ime i prezime</label>
+              <input type="text" id="name" name="name" placeholder="Marko Marković" required />
+              <span class="form-error" id="nameError"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email adresa</label>
+              <input type="email" id="email" name="email" placeholder="marko@firma.rs" required />
+              <span class="form-error" id="emailError"></span>
+            </div>
+            <div class="form-group">
+              <label for="phone">Telefon (opciono)</label>
+              <input type="tel" id="phone" name="phone" placeholder="+381 6X XXX XXXX" />
+            </div>
+            <div class="form-group">
+              <label for="service">Šta te zanima?</label>
+              <div class="select-wrap">
+                <select id="service" name="service" required>
+                  <option value="" disabled selected>Izaberi uslugu</option>
+                  <option>Prezentacioni sajt</option>
+                  <option>Online prodavnica</option>
+                  <option>Redizajn postojećeg sajta</option>
+                  <option>SEO optimizacija</option>
+                  <option>Održavanje i podrška</option>
+                  <option>Nešto drugo</option>
+                </select>
+                <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </div>
+              <span class="form-error" id="serviceError"></span>
+            </div>
+            <div class="form-group">
+              <label for="message">Poruka</label>
+              <textarea id="message" name="message" rows="4"
+                placeholder="Opiši ukratko šta ti treba, koji je tvoj biznis i koji su tvoji ciljevi..."
+                required></textarea>
+              <span class="form-error" id="messageError"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+              <span id="btnText">Pošalji poruku</span>
+              <svg id="btnArrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+              <svg id="btnSpinner" class="spinner hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path
+                  d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+              </svg>
+            </button>
+            <div class="form-success hidden" id="formSuccess">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span>Poruka uspešno poslata! Javljam se u roku od 24h. 🎉</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#hero" class="nav-logo footer-logo">
+              <img src="logo.png" alt="Asevin logo" class="logo-img" />
+              <span class="logo-text">sevin</span>
+            </a>
+            <p>Pomažem lokalnim biznisima da izgrade snažno online prisustvo kroz moderan dizajn i razvoj web sajtova
+              koji zaista prodaju.</p>
+            <div class="footer-socials">
+              <a href="https://instagram.com/asevin" target="_blank" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="2" width="20" height="20" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+                </svg>
+              </a>
+              <a href="https://linkedin.com/in/jovanspinjo" target="_blank" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+              <a href="https://github.com/jovanspinjo" target="_blank" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+                </svg>
+              </a>
+              <a href="https://wa.me/381601234567" target="_blank" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path
+                    d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Usluge</h4>
+            <ul>
+              <li><a href="#usluge">Web Dizajn</a></li>
+              <li><a href="#usluge">Web Development</a></li>
+              <li><a href="#usluge">Online Prodavnice</a></li>
+              <li><a href="#usluge">SEO Optimizacija</a></li>
+              <li><a href="#usluge">Održavanje</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Navigacija</h4>
+            <ul>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#saradnja">Saradnja</a></li>
+              <li><a href="#o-meni">O meni</a></li>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Kontakt</h4>
+            <ul>
+              <li><a href="mailto:jovan@asevin.rs">jovan@asevin.rs</a></li>
+              <li><a href="tel:+381601234567">+381 60 123 4567</a></li>
+              <li><a href="https://wa.me/381601234567">WhatsApp poruka</a></li>
+            </ul>
+            <div class="footer-avail">
+              <div class="avail-dot"></div>
+              Dostupan za projekte
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <span>© 2025 Asevin. Sva prava zadržana.</span>
+        <span>Napravljeno sa ❤️ od Jovana Špinja</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════ MODAL ═══════════════════════ -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+    <div class="modal" id="modal" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scrollTop" aria-label="Nazad gore">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="18 15 12 9 6 15" />
+    </svg>
+  </button>
+
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
+  <script src="robot-scene.js"></script>
+  <script src="glowing-effect.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
