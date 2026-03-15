@@ -4,125 +4,156 @@
 (function initRobotScene() {
   'use strict';
 
-  /* ── Wait for element + custom element upgrade ────────────── */
-  function run() {
-    const viewer = document.querySelector('#robotScene spline-viewer');
-    if (!viewer) { setTimeout(run, 200); return; }
+  let headObj    = null;
+  let baseRotX   = 0, baseRotY   = 0;
+  let targetRotX = 0, targetRotY = 0;
+  let currRotX   = 0, currRotY   = 0;
 
-    let headObj  = null;
-    let baseRotX = 0, baseRotY = 0;
-    let targetRotX = 0, targetRotY = 0;
-    let currRotX   = 0, currRotY   = 0;
+  /* ── Scan ALL properties of an object looking for Spline app ── */
+  function extractApp(source) {
+    if (!source) return null;
 
-    /* ── Try all known ways to get the Spline Application ─── */
-    function getApp() {
-      return viewer._app
-          || viewer.app
-          || viewer.runtime
-          || (viewer.shadowRoot && viewer.shadowRoot._app)
-          || null;
-    }
+    /* Direct check */
+    if (typeof source.getAllObjects === 'function') return source;
+    if (typeof source.findObjectByName === 'function') return source;
 
-    /* ── Find the head object ─────────────────────────────── */
-    function initWithApp(app) {
-      if (!app || headObj) return false;
-
-      let all = [];
+    /* Shallow property scan */
+    const keys = Object.keys(source);
+    for (const k of keys) {
       try {
-        all = typeof app.getAllObjects === 'function' ? app.getAllObjects() : [];
-      } catch (_) { return false; }
+        const v = source[k];
+        if (v && typeof v === 'object') {
+          if (typeof v.getAllObjects === 'function') return v;
+          if (typeof v.findObjectByName === 'function') return v;
+        }
+      } catch (_) {}
+    }
+    return null;
+  }
 
-      if (!all.length) return false;
+  /* ── Find head object inside app ──────────────────────────── */
+  function initWithApp(app) {
+    if (!app || headObj) return false;
 
-      /* Always log so we know exact names */
-      console.log('[Spline] Objects in scene:', all.map(o => o.name || '(unnamed)'));
-
-      const keywords = ['head', 'neck', 'face', 'skull', 'robot', 'corpo', 'body', 'torso'];
-      let found = null;
-      for (const kw of keywords) {
-        found = all.find(o => o.name && o.name.toLowerCase().includes(kw));
-        if (found) { console.log('[Spline] Matched keyword "' + kw + '" → "' + found.name + '"'); break; }
+    let all = [];
+    try {
+      if (typeof app.getAllObjects === 'function') {
+        all = app.getAllObjects();
       }
+    } catch (_) {}
 
-      /* Fallback: first object in the list */
-      if (!found) {
-        found = all[0];
-        console.warn('[Spline] No keyword match — using first object: "' + (found && found.name) + '"');
+    if (!all || !all.length) {
+      console.warn('[Spline] getAllObjects returned empty — trying findObjectByName');
+      const keywords = ['Head','head','Neck','neck','Face','face','Robot','robot'];
+      for (const k of keywords) {
+        try {
+          const o = app.findObjectByName(k);
+          if (o) { all = [o]; break; }
+        } catch (_) {}
       }
-
-      headObj = found;
-      if (headObj) {
-        baseRotX = headObj.rotation.x || 0;
-        baseRotY = headObj.rotation.y || 0;
-        console.log('[Spline] Tracking "' + headObj.name + '", baseRot X=' + baseRotX + ' Y=' + baseRotY);
-      }
-      return !!headObj;
     }
 
-    /* ── RAF smoothing loop ───────────────────────────────── */
-    (function tick() {
-      if (headObj) {
-        currRotX += (targetRotX - currRotX) * 0.06;
-        currRotY += (targetRotY - currRotY) * 0.06;
-        headObj.rotation.x = baseRotX + currRotX;
-        headObj.rotation.y = baseRotY + currRotY;
-      }
-      requestAnimationFrame(tick);
-    })();
+    if (!all || !all.length) {
+      console.warn('[Spline] No objects found at all');
+      return false;
+    }
 
-    /* ── Watermark killer ─────────────────────────────────── */
+    console.log('[Spline] Objects:', all.map(o => o.name || '(no name)'));
+
+    const keywords = ['head','neck','face','skull'];
+    let found = null;
+    for (const kw of keywords) {
+      found = all.find(o => o.name && o.name.toLowerCase().includes(kw));
+      if (found) { console.log('[Spline] Head match:', found.name); break; }
+    }
+
+    if (!found) {
+      found = all[0];
+      console.warn('[Spline] No head keyword — using first object:', found && found.name);
+    }
+
+    headObj = found;
+    if (headObj) {
+      baseRotX = headObj.rotation.x || 0;
+      baseRotY = headObj.rotation.y || 0;
+      console.log('[Spline] Ready. baseRotX=' + baseRotX + ' baseRotY=' + baseRotY);
+    }
+    return !!headObj;
+  }
+
+  /* ── RAF smoothing loop ───────────────────────────────────── */
+  (function tick() {
+    if (headObj) {
+      currRotX += (targetRotX - currRotX) * 0.06;
+      currRotY += (targetRotY - currRotY) * 0.06;
+      headObj.rotation.x = baseRotX + currRotX;
+      headObj.rotation.y = baseRotY + currRotY;
+    }
+    requestAnimationFrame(tick);
+  })();
+
+  /* ── Mouse tracking ───────────────────────────────────────── */
+  document.addEventListener('mousemove', function (e) {
+    var x =  (e.clientX / window.innerWidth)  * 2 - 1;
+    var y = -(e.clientY / window.innerHeight) * 2 + 1;
+    targetRotY =  x * 0.45;
+    targetRotX = -y * 0.22;
+  }, { passive: true });
+
+  /* ── Wait for spline-viewer to exist in DOM ───────────────── */
+  function setup() {
+    var viewer = document.querySelector('#robotScene spline-viewer');
+    if (!viewer) { setTimeout(setup, 300); return; }
+
+    /* Watermark killer */
     function hideWatermark() {
-      const shadow = viewer.shadowRoot;
-      if (!shadow || shadow.querySelector('#asevin-kill-logo')) return;
-      const s = document.createElement('style');
-      s.id = 'asevin-kill-logo';
-      s.textContent = [
-        'a,#logo,[id*="logo"],[class*="logo"],[href*="spline.design"]{',
-        'display:none!important;opacity:0!important;pointer-events:none!important}',
-      ].join('');
+      var shadow = viewer.shadowRoot;
+      if (!shadow || shadow.querySelector('#ak-wm')) return;
+      var s = document.createElement('style');
+      s.id = 'ak-wm';
+      s.textContent = 'a,#logo,[id*="logo"],[class*="logo"],[href*="spline"]{display:none!important}';
       shadow.appendChild(s);
     }
-    [300, 900, 2000, 4000].forEach(t => setTimeout(hideWatermark, t));
+    [300, 800, 2000, 4000].forEach(function(t){ setTimeout(hideWatermark, t); });
 
-    /* ── Load event ───────────────────────────────────────── */
-    viewer.addEventListener('load', function onLoad(e) {
+    /* ── load event ── */
+    viewer.addEventListener('load', function (e) {
+      console.log('[Spline] load event fired, e.detail=', e && e.detail);
       hideWatermark();
       setTimeout(hideWatermark, 600);
-      setTimeout(hideWatermark, 2000);
 
-      /* e.detail may be the Application directly */
-      const appFromEvt = (e && e.detail && typeof e.detail.getAllObjects === 'function')
-        ? e.detail : null;
-
+      /* Try event detail */
+      var appFromEvt = extractApp(e && e.detail);
       if (appFromEvt && initWithApp(appFromEvt)) return;
 
-      /* Otherwise poll for the app property */
-      let tries = 0;
-      const poll = setInterval(function () {
-        if (headObj || tries++ > 40) { clearInterval(poll); return; }
-        initWithApp(getApp());
-      }, 250);
+      /* Try viewer properties */
+      var appFromViewer = extractApp(viewer);
+      if (appFromViewer && initWithApp(appFromViewer)) return;
+
+      /* Poll if still not found */
+      var tries = 0;
+      var poll = setInterval(function () {
+        if (headObj || tries++ > 50) { clearInterval(poll); return; }
+        var a = extractApp(viewer);
+        if (a) initWithApp(a);
+      }, 300);
     });
 
-    /* ── Independent poll (catches scenes that load fast) ─── */
-    let indTries = 0;
-    const indPoll = setInterval(function () {
-      if (headObj || indTries++ > 80) { clearInterval(indPoll); return; }
-      initWithApp(getApp());
-    }, 500);
-
-    /* ── Mouse → target rotation ──────────────────────────── */
-    document.addEventListener('mousemove', function (e) {
-      const x =  (e.clientX / window.innerWidth)  * 2 - 1;  // -1…+1 L→R
-      const y = -(e.clientY / window.innerHeight) * 2 + 1;  // -1…+1 B→T
-      targetRotY =  x * 0.45;   // ~±26°
-      targetRotX = -y * 0.22;   // ~±13°
-    }, { passive: true });
+    /* ── Independent poll (catches cached/fast loads) ── */
+    var ind = 0;
+    var indPoll = setInterval(function () {
+      if (headObj || ind++ > 100) { clearInterval(indPoll); return; }
+      var a = extractApp(viewer);
+      if (a) {
+        console.log('[Spline] App found via independent poll after ' + (ind * 400) + 'ms');
+        initWithApp(a);
+      }
+    }, 400);
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', run);
+    document.addEventListener('DOMContentLoaded', setup);
   } else {
-    run();
+    setup();
   }
 })();
