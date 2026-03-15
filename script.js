@@ -299,14 +299,14 @@ if (contactForm) {
 /* ── PORTFOLIO MODAL DATA ────────────────────────────────────── */
 const projects = [
   {
-    title: 'Projekat 1',
-    category: 'Biznis',
-    gradient: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
-    biznis: 'Tip biznisa',
-    problem: 'Ovde unesi opis problema koji je klijent imao.',
-    solution: 'Ovde opiši šta si uradio i koje rezultate je to donelo.',
-    tags: ['React', 'Next.js', 'SEO'],
-    live: '#',
+    title: 'Belle Éclat',
+    category: 'Kozmetika',
+    img: 'belle-eclat.jpg',
+    biznis: 'Kozmetički salon',
+    problem: 'Salon je radio isključivo na preporuke — bez ikakvog online prisustva. Klijenti nisu mogli da pronađu radno vreme, cenovnik ni kontakt na internetu, a broj novih klijenata je stagnirao.',
+    solution: 'Napravljen je moderan, mobilno optimizovan sajt sa jasnom strukturom usluga i cenovnikom. Sajt se učitava ispod 2 sekunde, a dizajn je prilagođen premium estetici brenda. U prvom mesecu broj upita porastao je za 40%.',
+    tags: ['HTML/CSS', 'JavaScript', 'Netlify'],
+    live: 'https://bele-clat.netlify.app',
   },
   {
     title: 'Projekat 2',
@@ -345,16 +345,20 @@ window.openModal = function(index) {
   const overlay = document.getElementById('modalOverlay');
   const content = document.getElementById('modalContent');
 
-  content.innerHTML = `
-    <div class="modal-img">
-      <div style="width:100%;height:100%;background:${p.gradient};border-radius:var(--radius);
+  const imgHTML = p.img
+    ? `<img src="${p.img}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius);display:block;" />`
+    : `<div style="width:100%;height:100%;background:${p.gradient || 'linear-gradient(135deg,#6366f1,#8b5cf6)'};border-radius:var(--radius);
         display:flex;align-items:center;justify-content:center;min-height:200px;">
         <div style="opacity:.35;display:flex;flex-direction:column;gap:10px;width:55%;">
           <div style="height:10px;background:rgba(255,255,255,.7);border-radius:999px;"></div>
           <div style="height:10px;background:rgba(255,255,255,.7);border-radius:999px;width:65%;"></div>
           <div style="height:60px;background:rgba(255,255,255,.3);border-radius:8px;margin-top:4px;"></div>
         </div>
-      </div>
+      </div>`;
+
+  content.innerHTML = `
+    <div class="modal-img">
+      ${imgHTML}
     </div>
     <div class="modal-category">${p.category}</div>
     <h2>${p.title}</h2>
