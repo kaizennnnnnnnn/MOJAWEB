@@ -4,6 +4,15 @@
 (function initRobotScene() {
   'use strict';
 
+  /* ── Skip on touch/mobile — too heavy for phones ─────────── */
+  var isMobile = window.matchMedia('(hover: none) and (pointer: coarse)').matches
+              || window.innerWidth < 768;
+  if (isMobile) {
+    var rs = document.getElementById('robotScene');
+    if (rs) rs.style.display = 'none';
+    return;
+  }
+
 
   let headObj    = null;
   let baseRotX   = 0, baseRotY   = 0;
