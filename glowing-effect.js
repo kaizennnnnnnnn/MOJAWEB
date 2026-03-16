@@ -7,8 +7,6 @@
 (function initGlowingEffect() {
   'use strict';
 
-  /* Touch devices have no hover — skip entirely */
-  if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
 
   const PROXIMITY     = 72;
   const INACTIVE_ZONE = 0.01;

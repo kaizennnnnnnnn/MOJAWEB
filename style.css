@@ -233,9 +233,6 @@ body:has(a:hover) .cursor, body:has(button:hover) .cursor { width: 20px; height:
   --spline-viewer-background: transparent;
 }
 /* watermark hidden via shadow-DOM style injection in robot-scene.js */
-@media (max-width: 768px) {
-  #robotScene { width: 100%; opacity: 0.35; }
-}
 .hero-blob {
   position: absolute; border-radius: 50%; filter: blur(80px);
   animation: blobFloat 8s ease-in-out infinite;
