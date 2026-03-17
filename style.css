@@ -732,6 +732,9 @@ body:has(a:hover) .cursor, body:has(button:hover) .cursor { width: 20px; height:
   transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
   outline: none; width: 100%;
 }
+.form-group select option {
+  background: var(--bg-card); color: var(--text);
+}
 .form-group input::placeholder,
 .form-group textarea::placeholder { color: var(--text-3); }
 .form-group input:focus,
