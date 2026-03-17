@@ -711,7 +711,8 @@
           </div>
         </div>
         <div class="contact-form-wrap reveal-right">
-          <form class="contact-form" id="contactForm" novalidate>
+          <form class="contact-form" id="contactForm" name="kontakt" data-netlify="true" novalidate>
+            <input type="hidden" name="form-name" value="kontakt" />
             <div class="form-group">
               <label for="name">Ime i prezime</label>
               <input type="text" id="name" name="name" placeholder="Marko Marković" required />

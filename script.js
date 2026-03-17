@@ -277,22 +277,35 @@ if (contactForm) {
     btnArrow.classList.add('hidden');
     spinner.classList.remove('hidden');
 
-    // Simulate form submission (replace with real endpoint)
-    await new Promise(r => setTimeout(r, 1800));
+    try {
+      const formData = new FormData(contactForm);
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString(),
+      });
 
-    btn.classList.add('hidden');
-    success.classList.remove('hidden');
-    contactForm.reset();
+      if (!response.ok) throw new Error('Network response was not ok');
 
-    // Reset after 6s
-    setTimeout(() => {
-      btn.classList.remove('hidden');
-      success.classList.add('hidden');
+      btn.classList.add('hidden');
+      success.classList.remove('hidden');
+      contactForm.reset();
+
+      setTimeout(() => {
+        btn.classList.remove('hidden');
+        success.classList.add('hidden');
+        btn.disabled = false;
+        btnText.textContent = 'Pošalji poruku';
+        btnArrow.classList.remove('hidden');
+        spinner.classList.add('hidden');
+      }, 6000);
+    } catch {
       btn.disabled = false;
       btnText.textContent = 'Pošalji poruku';
       btnArrow.classList.remove('hidden');
       spinner.classList.add('hidden');
-    }, 6000);
+      alert('Greška pri slanju. Pokušaj ponovo ili me kontaktiraj direktno.');
+    }
   });
 }
 
