@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -50,11 +50,11 @@
   <!-- ═══════════════════════ HERO ═══════════════════════ -->
   <section class="hero" id="hero">
     <div class="hero-bg">
-      <div class="hero-blob blob-1"></div>
-      <div class="hero-blob blob-2"></div>
-      <div class="hero-blob blob-3"></div>
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="hero.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
       <div class="hero-grid"></div>
-      <canvas id="particleCanvas"></canvas>
     </div>
     <div class="hero-container">
       <div class="hero-badge reveal-up">
