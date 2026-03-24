@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(del \"c:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Desktop\\\\WEBSITES\\\\MOJAWEB\\\\text-particles.js\")"
+    ]
+  }
+}
