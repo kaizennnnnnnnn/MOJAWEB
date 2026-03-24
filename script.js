@@ -5,28 +5,6 @@
 
 'use strict';
 
-/* ── CURSOR ─────────────────────────────────────────────────── */
-const cursor = document.getElementById('cursor');
-const cursorFollower = document.getElementById('cursorFollower');
-let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
-
-if (window.matchMedia('(pointer: fine)').matches) {
-  document.addEventListener('mousemove', e => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cursor.style.left = mouseX + 'px';
-    cursor.style.top  = mouseY + 'px';
-  });
-
-  function animateFollower() {
-    followerX += (mouseX - followerX) * 0.12;
-    followerY += (mouseY - followerY) * 0.12;
-    cursorFollower.style.left = followerX + 'px';
-    cursorFollower.style.top  = followerY + 'px';
-    requestAnimationFrame(animateFollower);
-  }
-  animateFollower();
-}
 
 /* ── PARTICLE CANVAS ────────────────────────────────────────── */
 (function initParticles() {
@@ -332,22 +310,22 @@ const projects = [
     live: 'https://restoran-ember.netlify.app',
   },
   {
-    title: 'Cakeeren',
-    category: 'E-commerce',
+    title: 'Mirabelle',
+    category: 'Poslastičarnica',
     img: 'cakeW.png',
-    biznis: 'Poslastičarnica',
-    problem: 'Vlasnik poslastičarnice prodavao je kolače isključivo u fizičkoj lokaciji i putem preporuka. Bez online prisustva nije mogao da prikaže svoju ponudu, prima narudžbine unapred niti da privuče klijente van lokalnog kruga.',
-    solution: 'Napravljen je moderan online katalog sa vizuelnim prikazom svih vrsta kolača i formularem za narudžbine. Dizajn odražava toplu, premijum estetiku brenda, a klijenti mogu lako da vide ponudu i kontaktiraju poslastičarnicu direktno sa sajta.',
+    biznis: 'Brendirana online poslastičarnica',
+    problem: 'Cakeeren je imao jak vizuelni identitet i odlične proizvode, ali sve narudžbine su išle preko DM-ova na Instagramu — haotično, sporo, bez pregleda šta je naručeno i kad. Klijenti su često odustajali jer nije bilo jasnog cenovnika ni načina da naruče na licu mesta.',
+    solution: 'Napravljen je sajt koji funkcioniše kao digitalna vitrina i narudžbenica u isto vreme. Svaki proizvod ima svoju stranicu sa fotografijom, opisom i cenom. Narudžbine stižu direktno na email — bez posrednika, bez konfuzije. Dizajn je topao, sladak i potpuno u skladu sa brendom.',
     tags: ['HTML/CSS', 'JavaScript', 'Netlify'],
     live: 'https://kaizennnnnnnnn.github.io/CAKEEREN/',
   },
   {
-    title: 'Furniture Store',
-    category: 'E-commerce',
+    title: 'Forma Studio',
+    category: 'Nameštaj',
     img: 'furnitureW.png',
-    biznis: 'Prodavnica nameštaja',
-    problem: 'Prodavnica nameštaja je imala bogat asortiman, ali bez online kataloga — kupci su morali fizički da dođu da vide ponudu. Bez digitalnog prisustva, biznis je gubio potencijalne klijente koji pretražuju nameštaj online pre posete.',
-    solution: 'Kreiran je elegantan, vizuelno bogat sajt sa prikazom kolekcija nameštaja i jasnim pozivnicama za kontakt i posetu showroom-u. Moderan dizajn naglašava kvalitet i estetiku proizvoda i olakšava kupcima donošenje odluke o kupovini.',
+    biznis: 'Prodavnica nameštaja i enterijera',
+    problem: 'Prodavnica je imala odličan showroom, ali niko ko pretražuje nameštaj online nije ni znao da postoji. Bez sajta, sav potencijalni promet je odlazio kod konkurencije koja je imala online prisustvo — bez obzira na kvalitet proizvoda.',
+    solution: 'Kreiran je elegantan sajt koji odražava premium osećaj brenda — tamna paleta, velike fotografije, čist layout. Svaka kolekcija je prikazana sa fokusom na detalje i materijale. Posetioci odmah vide šta prodavnica nudi i lako stupaju u kontakt ili zakazuju posetu showroom-u.',
     tags: ['HTML/CSS', 'JavaScript', 'Netlify'],
     live: 'https://kaizennnnnnnnn.github.io/furniture-website/',
   },
@@ -359,9 +337,9 @@ window.openModal = function(index) {
   const content = document.getElementById('modalContent');
 
   const imgHTML = p.img
-    ? `<img src="${p.img}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius);display:block;" />`
-    : `<div style="width:100%;height:100%;background:${p.gradient || 'linear-gradient(135deg,#6366f1,#8b5cf6)'};border-radius:var(--radius);
-        display:flex;align-items:center;justify-content:center;min-height:200px;">
+    ? `<img src="${p.img}" alt="${p.title}" style="width:100%;display:block;object-fit:cover;object-position:top;border-radius:12px;" />`
+    : `<div style="width:100%;background:${p.gradient || 'linear-gradient(135deg,#6366f1,#8b5cf6)'};border-radius:12px;
+        display:flex;align-items:center;justify-content:center;min-height:220px;">
         <div style="opacity:.35;display:flex;flex-direction:column;gap:10px;width:55%;">
           <div style="height:10px;background:rgba(255,255,255,.7);border-radius:999px;"></div>
           <div style="height:10px;background:rgba(255,255,255,.7);border-radius:999px;width:65%;"></div>

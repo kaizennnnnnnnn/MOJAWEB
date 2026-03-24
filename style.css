@@ -56,22 +56,6 @@ ul { list-style: none; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 999px; }
 
-/* ── CURSOR ────────────────────────────────────────────────── */
-.cursor {
-  position: fixed; top: 0; left: 0; width: 10px; height: 10px;
-  background: var(--accent); border-radius: 50%; pointer-events: none;
-  z-index: 9999; transform: translate(-50%,-50%);
-  transition: width 0.2s, height 0.2s, background 0.2s;
-  mix-blend-mode: difference;
-}
-.cursor-follower {
-  position: fixed; top: 0; left: 0; width: 36px; height: 36px;
-  border: 1.5px solid rgba(139,172,196,0.5); border-radius: 50%;
-  pointer-events: none; z-index: 9998; transform: translate(-50%,-50%);
-  transition: all 0.12s ease;
-}
-body:has(a:hover) .cursor, body:has(button:hover) .cursor { width: 20px; height: 20px; }
-@media (pointer: coarse) { .cursor, .cursor-follower { display: none; } }
 
 /* ── UTILITY ────────────────────────────────────────────────── */
 .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
@@ -833,8 +817,8 @@ body:has(a:hover) .cursor, body:has(button:hover) .cursor { width: 20px; height:
 .modal-close:hover { background: rgba(255,255,255,0.12); color: var(--text); }
 .modal-content { padding: 40px; }
 .modal-content .modal-img {
-  width: 100%; aspect-ratio: 16/9; border-radius: var(--radius);
-  margin-bottom: 24px; overflow: hidden;
+  width: 100%; margin-bottom: 24px; overflow: hidden;
+  border-radius: var(--radius);
 }
 .modal-content h2 {
   font-family: var(--font-head); font-size: 1.5rem; margin-bottom: 8px; color: var(--text);
