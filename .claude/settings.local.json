@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(del \"c:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Desktop\\\\WEBSITES\\\\MOJAWEB\\\\text-particles.js\")"
+      "Bash(del \"c:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Desktop\\\\WEBSITES\\\\MOJAWEB\\\\text-particles.js\")",
+      "Bash(gh api repos/Leonxlnx/taste-skill --jq '.description, .default_branch')",
+      "Bash(gh api repos/Leonxlnx/taste-skill/contents --jq '.[].name')",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ]
   }
 }
