@@ -1028,6 +1028,8 @@ ul { list-style: none; }
 }
 
 @media (max-width: 768px) {
+  .hero { min-height: 0; }
+  .hero-video { object-fit: cover; }
   .section { padding: 72px 0; }
   .nav-links {
     position: fixed; top: 70px; left: 0; right: 0;
